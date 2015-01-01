@@ -1,4 +1,5 @@
-__author__ = 'philipp'
+#!/usr/bin/python3
+__author__ = 'eayin2'
 from subprocess import Popen, PIPE
 import time
 import os
@@ -9,10 +10,6 @@ logPath = "/var/log/byscrub.log"
 def sendmail(event, subject, message):
     p = Popen(["/usr/bin/gymail.py", "-e", event, "-s", subject, "-m", message], stdout=PIPE, stderr=PIPE)
     out, err = p.communicate()
-
-def touch(fname, times=None):
-    with open(fname, 'a'):
-        os.utime(fname, times)
 
 def findBtrfsMounts():
     btrfsRootSubvolList = list()
